@@ -1,0 +1,52 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/intelFPGA_lite/18.1/projects/ensc350-lab1/Using_ModelSim/timing
+vhard_block
+Z0 !s110 1580519733
+!i10b 1
+!s100 XK7R[U_`g5M7N^gAaBDoN1
+If3UeMQ;Zck3ST<I;bZE2f1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dD:/intelFPGA_lite/18.1/projects/ensc350-lab1/Using_ModelSim/timing/simulation/modelsim
+Z3 w1580518816
+Z4 8D:/intelFPGA_lite/18.1/projects/ensc350-lab1/Using_ModelSim/timing/simulation/modelsim/serial.vo
+Z5 FD:/intelFPGA_lite/18.1/projects/ensc350-lab1/Using_ModelSim/timing/simulation/modelsim/serial.vo
+L0 1761
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1580519733.000000
+Z8 !s107 D:/intelFPGA_lite/18.1/projects/ensc350-lab1/Using_ModelSim/timing/simulation/modelsim/serial.vo|
+Z9 !s90 -reportprogress|300|-work|tutorial|-stats=none|D:/intelFPGA_lite/18.1/projects/ensc350-lab1/Using_ModelSim/timing/simulation/modelsim/serial.vo|
+!i113 1
+Z10 o-work tutorial
+Z11 tCvgOpt 0
+vserial
+R0
+!i10b 1
+!s100 :Yi9boLYgHV=7G5oTT:eb0
+ImjLffFD;oC5=WYKA?6T3Q1
+R1
+R2
+R3
+R4
+R5
+L0 31
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11

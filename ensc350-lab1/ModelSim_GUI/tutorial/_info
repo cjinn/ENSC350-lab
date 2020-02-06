@@ -1,0 +1,49 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/intelFPGA_lite/18.1/projects/ensc350-lab2
+Emajority
+Z0 w1580521312
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z3 dD:/intelFPGA_lite/18.1/projects/ensc350-lab1/ModelSim_GUI
+Z4 8D:/intelFPGA_lite/18.1/projects/ensc350-lab1/ModelSim_GUI/majority.vhd
+Z5 FD:/intelFPGA_lite/18.1/projects/ensc350-lab1/ModelSim_GUI/majority.vhd
+l0
+L4
+Vcc=S6PFP0UK==eF0zXU=[1
+!s100 e18LLWQEKUc0XWS`5cBGW0
+Z6 OV;C;10.5b;63
+32
+Z7 !s110 1580521344
+!i10b 1
+Z8 !s108 1580521344.000000
+Z9 !s90 -reportprogress|300|-work|tutorial|-2002|-explicit|-stats=none|D:/intelFPGA_lite/18.1/projects/ensc350-lab1/ModelSim_GUI/majority.vhd|
+Z10 !s107 D:/intelFPGA_lite/18.1/projects/ensc350-lab1/ModelSim_GUI/majority.vhd|
+!i113 1
+Z11 o-work tutorial -2002 -explicit
+Z12 tExplicit 1 CvgOpt 0
+Alogicfunction
+R1
+R2
+DEx4 work 8 majority 0 22 cc=S6PFP0UK==eF0zXU=[1
+l9
+L8
+Vo8^H14N8aLPXHblofnafN2
+!s100 a@[DJ]RV5dDkihLn]cJP>0
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
