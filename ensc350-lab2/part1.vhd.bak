@@ -86,10 +86,10 @@ begin
 	-- width - width/2 = 4
 
 	Recur: if (width > 2) generate
-		A0: entity LWS02ParityCheck(Tree2) generic map(width/2)
+		A0: entity ParityCheck(Tree2) generic map(width/2)
 		port map ( input(width - width/2-1 downto 0), iq(0));
 
-		A1: entity LWS02ParityCheck(Tree2) generic map(width - width/2)
+		A1: entity ParityCheck(Tree2) generic map(width - width/2)
 		port map ( input(width-1 downto width - width/2), iq(1));
 
 		A2: entity LWS02.xor2 port map ( iq(0), iq(1), output );

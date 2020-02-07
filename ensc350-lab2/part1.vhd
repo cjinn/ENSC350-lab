@@ -23,7 +23,6 @@ end entity ParityCheck;
 architecture Tree1 of ParityCheck is
 	signal iq : std_logic_vector( width-1 downto 0 );
 begin
-	output <= iq(6);
 	A0: entity LWS02.xor2 port map ( input(0), input(1), iq(0) );
 	A1: entity LWS02.xor2 port map ( input(2), input(3), iq(1) );
 	A2: entity LWS02.xor2 port map ( input(4), input(5), iq(2) );
@@ -31,7 +30,7 @@ begin
 
 	A4: entity LWS02.xor2 port map ( iq(0), iq(1), iq(4) );
 	A5: entity LWS02.xor2 port map ( iq(2), iq(3), iq(5) );
-	A6: entity LWS02.xor2 port map ( iq(4), iq(5), iq(6) );
+	A6: entity LWS02.xor2 port map ( iq(4), iq(5), output );
 end architecture tree1;
 
 
