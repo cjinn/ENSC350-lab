@@ -23,9 +23,9 @@ Vf>02d@?Yf;QI=aT7=QM;70
 !s100 UY]bigX]M8_VYOP96Y:Gc1
 Z8 OV;C;10.5b;63
 32
-Z9 !s110 1581057541
+Z9 !s110 1581128556
 !i10b 1
-Z10 !s108 1581057541.000000
+Z10 !s108 1581128556.000000
 Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\part2.vhd|
 Z12 !s107 D:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\part2.vhd|
 !i113 1
@@ -241,7 +241,7 @@ R1
 R2
 R3
 R4
-DEx4 work 4 and4 0 22 _N8?8gdX5Qh9OlW3oAEz<0
+Z26 DEx4 work 4 and4 0 22 _N8?8gdX5Qh9OlW3oAEz<0
 l54
 L53
 V2mQYgBz5D7<n@1oe8OZRb2
@@ -257,13 +257,13 @@ R24
 R13
 R14
 Ecnet
-Z26 w1580433138
+Z27 w1581128551
 R16
 R3
 R4
 R5
-Z27 8D:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/Cnet.vhd
-Z28 FD:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/Cnet.vhd
+Z28 8D:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\Cnet.vhd
+Z29 FD:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\Cnet.vhd
 l0
 L8
 VoEB05ioT3:@7naGBa<KJO0
@@ -273,8 +273,8 @@ R8
 R9
 !i10b 1
 R10
-Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/Cnet.vhd|
-Z30 !s107 D:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/Cnet.vhd|
+Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\Cnet.vhd|
+Z31 !s107 D:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\Cnet.vhd|
 !i113 1
 R13
 R14
@@ -283,17 +283,17 @@ R16
 R3
 R4
 R17
-l43
-L42
-Vk8YCQbeh2Y>24?HHKT=[g3
-!s100 ;Uzjg_8X7gaj@T1lmZ:T53
+l78
+L76
+VPPY@aoB@b>;DmO60bWkdd0
+!s100 IDTXIf5C9YY2bhW]63mW20
 R8
 32
 R9
 !i10b 1
 R10
-R29
 R30
+R31
 !i113 1
 R13
 R14
@@ -302,55 +302,62 @@ R16
 R3
 R4
 R17
-l36
-L35
-VX^M3N_lg^45JiMk^QikoJ0
-!s100 MPDlZ>JP=1KXYjYljbIlb2
+l70
+L69
+Vd[be4GlXkFPlGg]J[GC>A2
+!s100 g=ZmkT=fTkojVSik4H=jD2
 R8
 32
 R9
 !i10b 1
 R10
-R29
 R30
+R31
 !i113 1
 R13
 R14
 Abookskip
+R26
+R1
+R2
+Z32 DEx4 work 5 cprop 0 22 [KW5Z=X@1NOg8B=2o_=]?0
 R16
 R3
 R4
 R17
-l29
-L28
-V]I_]WKH53cG?zWLmfH?^T1
-!s100 4]DM2V^m0S>VKjS^6>A>B1
+l42
+L39
+VB[]n8oP6XF^4ah0hJSJ`:0
+!s100 c1:[Z[bIYE1d8H55Z5nK>2
 R8
 32
 R9
 !i10b 1
 R10
-R29
 R30
+R31
 !i113 1
 R13
 R14
 Aripple
+R1
+R2
+R32
 R16
 R3
 R4
 R17
-l22
+l24
 L21
-V0`g^5_`l;OnCN]GDWn<m;2
-!s100 gS;QKd8h>WQOo6@i;SA2L0
+V4nUHY]@bA4C8PMPVi]c_41
+!s100 NEeWzdM<hS7H>Im=DKAdo2
 R8
 32
 R9
 !i10b 1
 R10
-R29
 R30
+R31
 !i113 1
 R13
 R14
@@ -378,13 +385,13 @@ R24
 R13
 R14
 Astructural
-Z31 DEx4 work 3 or2 0 22 Fl0^Gc246X7RNnieRfCFh0
+Z33 DEx4 work 3 or2 0 22 Fl0^Gc246X7RNnieRfCFh0
 R25
 R1
 R2
 R3
 R4
-DEx4 work 5 cprop 0 22 [KW5Z=X@1NOg8B=2o_=]?0
+R32
 l178
 L176
 VIP<N2]_gM@Xig9BiWFl2A0
@@ -423,7 +430,7 @@ R12
 R13
 R14
 Astructural
-Z32 DEx4 work 4 xor2 0 22 [>E6iCI4F;AAa4ME6<X^c2
+Z34 DEx4 work 4 xor2 0 22 [>E6iCI4F;AAa4ME6<X^c2
 R25
 R1
 R2
@@ -515,7 +522,7 @@ R1
 R2
 R3
 R4
-R31
+R33
 l77
 L76
 VbomieQP9BDP_>UPc=G6N>2
@@ -617,13 +624,13 @@ R24
 R13
 R14
 Eparitycheck
-Z33 w1581056903
+Z35 w1581122257
 R16
 R3
 R4
 R5
-Z34 8D:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\part1.vhd
-Z35 FD:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\part1.vhd
+Z36 8D:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\part1.vhd
+Z37 FD:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\part1.vhd
 l0
 L14
 VMa_O]f=YXZhMOTWE4nmf31
@@ -633,19 +640,19 @@ R8
 R9
 !i10b 1
 R10
-Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\part1.vhd|
-Z37 !s107 D:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\part1.vhd|
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\part1.vhd|
+Z39 !s107 D:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\part1.vhd|
 !i113 1
 R13
 R14
 Atree2
 R1
 R2
-Z38 DEx5 lws02 4 xor2 0 22 [>E6iCI4F;AAa4ME6<X^c2
+Z40 DEx5 lws02 4 xor2 0 22 [>E6iCI4F;AAa4ME6<X^c2
 R16
 R3
 R4
-Z39 DEx4 work 11 paritycheck 0 22 Ma_O]f=YXZhMOTWE4nmf31
+Z41 DEx4 work 11 paritycheck 0 22 Ma_O]f=YXZhMOTWE4nmf31
 l78
 L76
 VzBDP56LhKP98RcacN@=Tz3
@@ -655,19 +662,19 @@ R8
 R9
 !i10b 1
 R10
-R36
-R37
+R38
+R39
 !i113 1
 R13
 R14
 Achain2
 R1
 R2
-R38
+R40
 R16
 R3
 R4
-R39
+R41
 l57
 L55
 V6FP7Mo<@b4Zfdcc^b4CGR3
@@ -677,19 +684,19 @@ R8
 R9
 !i10b 1
 R10
-R36
-R37
+R38
+R39
 !i113 1
 R13
 R14
 Achain1
 R1
 R2
-R38
+R40
 R16
 R3
 R4
-R39
+R41
 l41
 L39
 V8=N^7^hd8lVcLdH_[hECG0
@@ -699,19 +706,19 @@ R8
 R9
 !i10b 1
 R10
-R36
-R37
+R38
+R39
 !i113 1
 R13
 R14
 Atree1
 R1
 R2
-R38
+R40
 R16
 R3
 R4
-R39
+R41
 l25
 L23
 V1?ETbD4m>AZH8`N0LU]8T0
@@ -721,8 +728,8 @@ R8
 R9
 !i10b 1
 R10
-R36
-R37
+R38
+R39
 !i113 1
 R13
 R14
@@ -750,7 +757,7 @@ R12
 R13
 R14
 Astructural
-R32
+R34
 R1
 R2
 R3
@@ -771,31 +778,31 @@ R12
 R13
 R14
 Etestpart1
-Z40 w1247102036
+Z42 w1247102036
 R1
 R2
 R3
 R4
 R5
-Z41 8D:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/TestPart1.vhd
-Z42 FD:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/TestPart1.vhd
+Z43 8D:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/TestPart1.vhd
+Z44 FD:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/TestPart1.vhd
 l0
 L7
 V6Vj;LhTmaHSjGZSmaA8eV1
 !s100 1S]om=PH>?ET];5bdjXVZ0
 R8
 32
-R9
+Z45 !s110 1581128557
 !i10b 1
 R10
-Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/TestPart1.vhd|
-Z44 !s107 D:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/TestPart1.vhd|
+Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/TestPart1.vhd|
+Z47 !s107 D:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/TestPart1.vhd|
 !i113 1
 R13
 R14
 Abehavioural
 R16
-R39
+R41
 R1
 R2
 R3
@@ -807,34 +814,34 @@ Va[>KCEl;?ab128?O9`Mml2
 !s100 P]0TUUFa?MP`5mE:5gZHA0
 R8
 32
-R9
+R45
 !i10b 1
 R10
-R43
-R44
+R46
+R47
 !i113 1
 R13
 R14
 Etestpart2
-Z45 w1309722335
+Z48 w1309722335
 R1
 R2
 R3
 R4
 R5
-Z46 8D:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/TestPart2.vhd
-Z47 FD:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/TestPart2.vhd
+Z49 8D:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\TestPart2.vhd
+Z50 FD:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\TestPart2.vhd
 l0
 L6
 V8d;?gFUc^@ZoAOWgSdgWN0
 !s100 KI_:J0jGlco0]BE:Og4jW3
 R8
 32
-Z48 !s110 1581057542
+R45
 !i10b 1
-Z49 !s108 1581057542.000000
-Z50 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/TestPart2.vhd|
-Z51 !s107 D:/intelFPGA_lite/18.1/projects/ENSC350-lab/ensc350-lab2/TestPart2.vhd|
+Z51 !s108 1581128557.000000
+Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\TestPart2.vhd|
+Z53 !s107 D:\intelFPGA_lite\18.1\projects\ENSC350-lab\ensc350-lab2\TestPart2.vhd|
 !i113 1
 R13
 R14
@@ -844,18 +851,18 @@ R1
 R2
 R3
 R4
-Z52 DEx4 work 9 testpart2 0 22 8d;?gFUc^@ZoAOWgSdgWN0
+Z54 DEx4 work 9 testpart2 0 22 8d;?gFUc^@ZoAOWgSdgWN0
 l13
 L9
-Z53 Vmjf:>AeSSeB[3YL[BzL?d0
-Z54 !s100 @FQ69immSIbmUKZkKaQj02
+Z55 Vmjf:>AeSSeB[3YL[BzL?d0
+Z56 !s100 @FQ69immSIbmUKZkKaQj02
 R8
 32
-R48
+R45
 !i10b 1
-R49
-R50
 R51
+R52
+R53
 !i113 1
 R13
 R14
@@ -887,7 +894,7 @@ R1
 R2
 R3
 R4
-R32
+R34
 l138
 L137
 VIU<4i8XB:CmNl<SnkiB;N3
