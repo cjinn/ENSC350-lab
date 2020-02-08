@@ -19,18 +19,33 @@ end entity Cnet;
 -- Students must Create the following Carry Network Architectures.
 -----------------------------------------------------------------------------
 architecture Ripple of Cnet is
-	signal tempCarry1 : std_logic; -- Don't read from output signal C
-	signal tempCarry2 : std_logic;
+	signal a : std_logic_vector(width downto 0); -- Don't read from output signal C
 begin
-	C(0) <= Cin;
-	C(8) <= Cin;
-	tempCarry1 <= Cin;
+	a(0) <= Cin;
+
+	-- Cprop1: entity Work.Cprop port map( G(0), P(0), a(0), a(1));
+	-- Cprop2: entity Work.Cprop port map( G(1), P(1), a(1), a(2));
+	-- Cprop3: entity Work.Cprop port map( G(2), P(2), a(2), a(3));
+	-- Cprop4: entity Work.Cprop port map( G(3), P(3), a(3), a(4));
+	-- Cprop5: entity Work.Cprop port map( G(4), P(4), a(4), a(5));
+	-- Cprop6: entity Work.Cprop port map( G(5), P(5), a(5), a(6));
+	-- Cprop7: entity Work.Cprop port map( G(6), P(6), a(6), a(7));
+	-- Cprop8: entity Work.Cprop port map( G(7), P(7), a(7), a(8));
+
+	-- Cprop9: entity Work.Cprop port map( G(8), P(8), a(8), a(9));
+	-- Cprop10: entity Work.Cprop port map( G(9), P(9), a(9), a(10));
+	-- Cprop11: entity Work.Cprop port map( G(10), P(10), a(10), a(11));
+	-- Cprop12: entity Work.Cprop port map( G(11), P(11), a(11), a(12));
+	-- Cprop13: entity Work.Cprop port map( G(12), P(12), a(12), a(13));
+	-- Cprop14: entity Work.Cprop port map( G(13), P(13), a(13), a(14));
+	-- Cprop15: entity Work.Cprop port map( G(14), P(14), a(14), a(15));
+	-- Cprop16: entity Work.Cprop port map( G(15), P(15), a(15), a(16));
+
 	CpropGenerate: for i in 0 to width-1 generate
-		C(i) <= tempCarry1;
-		Cpropi: entity Work.Cprop port map(G(i), P(i), tempCarry1, tempCarry2);
-		tempCarry1 <= tempCarry2;
+		Cpropi: entity Work.Cprop port map(G(i), P(i), a(i), a(i + 1));
 	end generate CpropGenerate;
-	C(width) <= tempCarry2;
+
+	C(width downto 0) <= a(width downto 0);
 end architecture Ripple;
 
 
