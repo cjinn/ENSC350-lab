@@ -109,7 +109,29 @@ end architecture BookSkip;
 
 
 architecture GoodSkip of Cnet is
+	signal a : std_logic_vector(width downto 0);
+	signal b : std_logic_vector(width/4 - 1 downto 0);
+	signal ctemp : std_logic_vector(width/4 - 1 downto 0);
+	signal d : std_logic_vector(width/4 - 1 downto 0);
+	signal andOutput : std_logic_vector(width/4 - 1 downto 0);
 begin
+	-- Assuming width %4 == 0
+
+	a(0) <= Cin;
+	ForLoop: for i in 0 to width/4 - 1 generate
+		Cprop1: entity Work.Cprop port map(G(i*4 + 0), P(i*4 + 0), a(i*4 + 0), a(i*4 + 1));
+		Cprop2: entity Work.Cprop port map(G(i*4 + 1), P(i*4 + 1), a(i*4 + 1), a(i*4 + 2));
+		Cprop3: entity Work.Cprop port map(G(i*4 + 2), P(i*4 + 2), a(i*4 + 2), a(i*4 + 3));
+		Cprop4: entity Work.Cprop port map(G(i*4 + 3), P(i*4 + 3), a(i*4 + 3), b(i));
+
+		Cand1: entity Work.and4 port map(P(i*4 + 0), P(i*4 + 1), P(i*4 + 2), P(i*4 + 3), andOutput(i));
+		Cprop5: entity Work.Cprop port map(b(i), andOutput(i), a(i*4 + 0), ctemp(i));
+
+		Cand2 : entity Work.and2 port map(G(i*4 + 2), P(i*4 + 2), d(i));
+		Cor1 : entity Work.or3 port map(d(i), G(i*4 + 3), ctemp(i), a(i*4 + 4));
+	End generate ForLoop;
+
+	C(width downto 0) <= a(width downto 0);
 end architecture GoodSkip;
 
 
