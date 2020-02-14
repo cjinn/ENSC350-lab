@@ -53,10 +53,8 @@ end architecture Ripple;
 
 architecture BookSkip of Cnet is
 	signal a : std_logic_vector(width downto 0);
-
-	signal interC : std_logic_vector(width/4 - 1 downto 0);
+	signal b : std_logic_vector(width/4 - 1 downto 0);
 	signal andOutput : std_logic_vector(width/4 - 1 downto 0);
-	signal skip : std_logic_vector(width/4 - 1 downto 0);
 begin
 	-- Assuming width %4 == 0
 
@@ -94,16 +92,14 @@ begin
     -- Cskip4: entity Work.Cprop port map(interC(3), andOutput(3), skip(3), a(16));
 
 	a(0) <= Cin;
-	skip(0) <= Cin;
 	ForLoop: for i in 0 to width/4 - 1 generate
-		skip(i) <= a(i*4);
-		PropLoop: for j in 0 to 3 generate
-			Cpropj: entity Work.Cprop port map(G(i*4 + j), P(i*4 + j), a(i*4 + j), a(i*4 + j + 1));
-		End generate PropLoop;
+		Cprop1: entity Work.Cprop port map(G(i*4 + 0), P(i*4 + 0), a(i*4 + 0), a(i*4 + 1));
+		Cprop2: entity Work.Cprop port map(G(i*4 + 1), P(i*4 + 1), a(i*4 + 1), a(i*4 + 2));
+		Cprop3: entity Work.Cprop port map(G(i*4 + 2), P(i*4 + 2), a(i*4 + 2), a(i*4 + 3));
+		Cprop4: entity Work.Cprop port map(G(i*4 + 3), P(i*4 + 3), a(i*4 + 3), b(i));
 
-		CpropBefore: entity Work.Cprop port map(G(i*4 + 3), P(i*4 + 3), a(i*4 + 3), interC(i));
 		Cand: entity Work.and4 port map(P(i*4 + 0), P(i*4 + 1), P(i*4 + 2), P(i*4 + 3), andOutput(i));
-		Cskip4: entity Work.Cprop port map(interC(i), andOutput(i), skip(i), a(i*4 + 4));
+		Cprop5: entity Work.Cprop port map(b(i), andOutput(i), a(i*4 + 0), a(i*4 + 4));
 	End generate ForLoop;
 
 	C(width downto 0) <= a(width downto 0);
