@@ -55,6 +55,7 @@ architecture BookSkip of Cnet is
 	signal a : std_logic_vector(width downto 0);
 	signal b : std_logic_vector(width/4 - 1 downto 0);
 	signal andOutput : std_logic_vector(width/4 - 1 downto 0);
+	signal output1 : std_logic_vector(width downto 0);
 begin
 	-- Assuming width %4 == 0
 
@@ -112,7 +113,6 @@ architecture GoodSkip of Cnet is
 	signal a : std_logic_vector(width downto 0);
 	signal b : std_logic_vector(width/4 - 1 downto 0);
 	signal ctemp : std_logic_vector(width/4 - 1 downto 0);
-	signal d : std_logic_vector(width/4 - 1 downto 0);
 	signal andOutput : std_logic_vector(width/4 - 1 downto 0);
 begin
 	-- Assuming width %4 == 0
@@ -127,9 +127,10 @@ begin
 		Cand1: entity Work.and4 port map(P(i*4 + 0), P(i*4 + 1), P(i*4 + 2), P(i*4 + 3), andOutput(i));
 		Cprop5: entity Work.Cprop port map(b(i), andOutput(i), a(i*4 + 0), ctemp(i));
 
-		Cand2 : entity Work.and2 port map(G(i*4 + 2), P(i*4 + 2), d(i));
-		Cor1 : entity Work.or3 port map(d(i), G(i*4 + 3), ctemp(i), a(i*4 + 4));
+		Cor1: entity Work.or2 port map(a(i*4 + 0), ctemp(i), a(i*4 + 4));
 	End generate ForLoop;
+	-- Cor1: entity Work.or2 port map(a(0), ctemp(0), a(4));
+	-- Cor2: entity Work.or2 port map(a(4), ctemp(1), a(8));
 
 	C(width downto 0) <= a(width downto 0);
 end architecture GoodSkip;
@@ -140,13 +141,13 @@ end architecture GoodSkip;
 architecture BrentKung of Cnet is
 
 begin
-	-- Recur: if (width > 2) generate
+-- 	Recur: if (width > 4) generate
 
-	-- 	InputPrep: for i in width - 1 downto 0 generate
-	-- 	End generate InputPrep;
-	-- End generate Recur;
+-- 		InputPrep: for i in width - 1 downto 0 generate
+-- 		End generate InputPrep;
+-- 	End generate Recur;
 
-	-- BaseCase: if (width == 2) generate
-	-- 	Cprop: entity Work.Cprop port map (G(0), P(0), Cin, C);
-	-- End generate BaseCase;
+-- 	BaseCase: if (width = 2) generate
+-- 		Cprop: entity Work.Cprop port map (G(0), P(0), Cin, C);
+-- 	End generate BaseCase;
 end architecture BrentKung;
