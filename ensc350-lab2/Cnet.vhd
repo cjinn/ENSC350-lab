@@ -139,51 +139,51 @@ end architecture GoodSkip;
 
 
 architecture BrentKung of Cnet is
-	Gtemp : std_logic;
-	Ptemp : std_logic;
+	-- Gtemp : std_logic;
+	-- Ptemp : std_logic;
 
 
-	Ga
-	Pa
+	-- Ga
+	-- Pa
 
-	Gb
-	Pb
+	-- Gb
+	-- Pb
 
-	Gc
-	Pc
+	-- Gc
+	-- Pc
 begin
 	-- Assuming width % 2 == 0
-	Recur: if (width > 2) generate
+-- 	Recur: if (width > 2) generate
  
-	End generate Recur;
+-- 	End generate Recur;
 
 
-	Case4: if (width > 2) generate
-		Level1a: entity Work.Cnet(BrentKung) generic map(width/2) port map
-		(G(width/2 - 1 downto 0), P(width/2 - 1 downto 0), Cin, Ga(width/2 - 1 downto 0), Pa(width/2 - 1 downto 0));
-		Level1b: entity Work.Cnet(BrentKung) generic map(width/2) port map
-		(G(width - 1 downto width/2), P(width - 1 downto width/2), Cin, Ga(width - 1 downto width/2), Pa(width - 1 downto width/2));
+-- 	Case4: if (width > 2) generate
+-- 		Level1a: entity Work.Cnet(BrentKung) generic map(width/2) port map
+-- 		(G(width/2 - 1 downto 0), P(width/2 - 1 downto 0), Cin, Ga(width/2 - 1 downto 0), Pa(width/2 - 1 downto 0));
+-- 		Level1b: entity Work.Cnet(BrentKung) generic map(width/2) port map
+-- 		(G(width - 1 downto width/2), P(width - 1 downto width/2), Cin, Ga(width - 1 downto width/2), Pa(width - 1 downto width/2));
 
-		Gb(1) <= Ga(width - 1);
-		Gb(0) <= (Ga(width/2 - 1));
-		Pb(1) <= Pa(width - 1);
-		Pb(0) <= Pa(width/2 - 1)
+-- 		Gb(1) <= Ga(width - 1);
+-- 		Gb(0) <= (Ga(width/2 - 1));
+-- 		Pb(1) <= Pa(width - 1);
+-- 		Pb(0) <= Pa(width/2 - 1)
 
 
-		Level2: entity Work.Cnet(BrentKung) generic map(width/2) port map
-		(Gb(1 downto 0), Pb(1 downto 0), Cin, Gc(width - 1 downto 0), Pc(width - 1 downto 0));
+-- 		Level2: entity Work.Cnet(BrentKung) generic map(width/2) port map
+-- 		(Gb(1 downto 0), Pb(1 downto 0), Cin, Gc(width - 1 downto 0), Pc(width - 1 downto 0));
 
-		-- Needs work
+-- 		-- Needs work
 
-	End generate Case4;
+-- 	End generate Case4;
 
-	BaseCase2: if (width = 2) generate
-		Cprop: entity Work.Cprop port map(G(1), G(0), P(1), C(0));
-		Cand: entity Work.and2 port map(P(1), P(0), C(1));
-	End generate BaseCase2;
+-- 	BaseCase2: if (width = 2) generate
+-- 		Cprop: entity Work.Cprop port map(G(1), G(0), P(1), C(0));
+-- 		Cand: entity Work.and2 port map(P(1), P(0), C(1));
+-- 	End generate BaseCase2;
 
-	BaseCase1: if (width = 1) generate
-		C(0) <= G(0);
-		C(1) <= P(1);
-End generate BaseCase1; 
+-- 	BaseCase1: if (width = 1) generate
+-- 		C(0) <= G(0);
+-- 		C(1) <= P(1);
+-- End generate BaseCase1; 
 end architecture BrentKung;
