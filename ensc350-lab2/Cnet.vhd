@@ -111,26 +111,33 @@ end architecture BookSkip;
 
 architecture GoodSkip of Cnet is
 	signal a : std_logic_vector(width downto 0);
-	signal b : std_logic_vector(width/4 - 1 downto 0);
+	signal b : std_logic_vector(width downto 0);
 	signal ctemp : std_logic_vector(width/4 - 1 downto 0);
-	signal andOutput : std_logic_vector(width/4 - 1 downto 0);
+	signal andOutput1 : std_logic_vector(width/4 - 1 downto 0);
+	signal andOutput2 : std_logic_vector(width/4 - 1 downto 0);
+	signal orOutput1 : std_logic_vector(width/4 - 1 downto 0);
 begin
 	-- Assuming width %4 == 0
 
 	a(0) <= Cin;
 	ForLoop: for i in 0 to width/4 - 1 generate
-		Cprop1: entity Work.Cprop port map(G(i*4 + 0), P(i*4 + 0), a(i*4 + 0), a(i*4 + 1));
-		Cprop2: entity Work.Cprop port map(G(i*4 + 1), P(i*4 + 1), a(i*4 + 1), a(i*4 + 2));
-		Cprop3: entity Work.Cprop port map(G(i*4 + 2), P(i*4 + 2), a(i*4 + 2), a(i*4 + 3));
-		Cprop4: entity Work.Cprop port map(G(i*4 + 3), P(i*4 + 3), a(i*4 + 3), b(i));
+		Cprop1: entity Work.Cprop port map(G(i*4 + 0), P(i*4 + 0), a(i*4 + 0), b(i*4 + 0));
+		Cprop2: entity Work.Cprop port map(G(i*4 + 1), P(i*4 + 1), a(i*4 + 1), b(i*4 + 1));
+		Cprop3: entity Work.Cprop port map(G(i*4 + 2), P(i*4 + 2), a(i*4 + 2), b(i*4 + 2));
+		Cprop4: entity Work.Cprop port map(G(i*4 + 3), P(i*4 + 3), a(i*4 + 3), b(i*4 + 3));
 
-		Cand1: entity Work.and4 port map(P(i*4 + 0), P(i*4 + 1), P(i*4 + 2), P(i*4 + 3), andOutput(i));
-		Cprop5: entity Work.Cprop port map(b(i), andOutput(i), a(i*4 + 0), ctemp(i));
+		Cand1: entity Work.and4 port map(P(i*4 + 0), P(i*4 + 1), P(i*4 + 2), P(i*4 + 3), andOutput1(i));
+		Cprop5: entity Work.Cprop port map(b(i*4 + 3), andOutput1(i), a(i*4 + 0), ctemp(i));
 
-		Cor1: entity Work.or2 port map(a(i*4 + 0), ctemp(i), a(i*4 + 4));
+		-- GoodSkip to skip propogation based on carries
+		Cand2: entity Work.and2 port map(a(i*4 + 0), andOutput1(i), andOutput2(i));
+
+		OrSkipLoop: for j in 0 to width/4 - 2 generate
+			CorSkip: entity Work.or2 port map(b(i*4 + j), andOutput2(i), a(i*4 + j + 1));
+		End generate OrSkipLoop;
+		-- CorOutput: entity Work.or3 port map(b(i*4 + 3), andOutput2(i), ctemp(i), a(i*4 + 4));
+		a(i*4 + 4) <= ctemp(i);
 	End generate ForLoop;
-	-- Cor1: entity Work.or2 port map(a(0), ctemp(0), a(4));
-	-- Cor2: entity Work.or2 port map(a(4), ctemp(1), a(8));
 
 	C(width downto 0) <= a(width downto 0);
 end architecture GoodSkip;
@@ -139,23 +146,23 @@ end architecture GoodSkip;
 
 
 architecture BrentKung of Cnet is
-	-- Gtemp : std_logic;
-	-- Ptemp : std_logic;
+-- 	-- Gtemp : std_logic;
+-- 	-- Ptemp : std_logic;
 
 
-	-- Ga
-	-- Pa
+-- 	-- Ga
+-- 	-- Pa
 
-	-- Gb
-	-- Pb
+-- 	-- Gb
+-- 	-- Pb
 
-	-- Gc
-	-- Pc
+-- 	-- Gc
+-- 	-- Pc
 begin
-	-- Assuming width % 2 == 0
--- 	Recur: if (width > 2) generate
+-- 	-- Assuming width % 2 == 0
+-- -- 	Recur: if (width > 2) generate
  
--- 	End generate Recur;
+-- -- 	End generate Recur;
 
 
 -- 	Case4: if (width > 2) generate
@@ -178,12 +185,12 @@ begin
 -- 	End generate Case4;
 
 -- 	BaseCase2: if (width = 2) generate
--- 		Cprop: entity Work.Cprop port map(G(1), G(0), P(1), C(0));
+-- 		Cprop: entity Work.Cprop port map(G(1), P(1), G(0), C(0));
 -- 		Cand: entity Work.and2 port map(P(1), P(0), C(1));
 -- 	End generate BaseCase2;
 
--- 	BaseCase1: if (width = 1) generate
--- 		C(0) <= G(0);
--- 		C(1) <= P(1);
--- End generate BaseCase1; 
+-- -- 	BaseCase1: if (width = 1) generate
+-- -- 		C(0) <= G(0);
+-- -- 		C(1) <= P(1);
+-- -- End generate BaseCase1; 
 end architecture BrentKung;
