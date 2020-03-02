@@ -10,21 +10,27 @@ End Entity Div7;
 
 -- Assume N = 18 for this design
 Architecture structural of Div7 is
-	Y := integer;
+	signal Y : std_logic_vector(N-1 downto 0);
+	signal iCarry: std_logic_vector(N-1 downto 0);
 Begin
 -- Insert your design here -------------------------------------------------------------------------------------
-	Y(n-1 downto 0) <= '0';
-	for i = 0 to (N-1) loop:
-		j := i*3;
-		FullAdder(x(j+1), x(j+0), Y(j+0), Y(j+1), Y(j+0));
-		FullAdder(x(j+2), x(j+1), Y(j+1), Y(j+2), Y(j+1));
-	end loop;
+	Y(N downto 0) <= "0";
+	IterateX: for i in 0 to (N/3) - 1 generate
+		FullAdderFirstBit: entity work.FullAdder port map (Y(0), x(i*3 + 0), '0'		, iCarry(0), Y(0));
+		FullAdderSeconBit: entity work.FullAdder port map (Y(1), x(i*3 + 1), iCarry(0), iCarry(1), Y(1));
+		FullAdderThirdBit: entity work.FullAdder port map (Y(2), x(i*3 + 2), iCarry(1), iCarry(2), Y(2));
+		Remaining: for k in 3 to (N-1) generate
+			FullAdderRemainingBits: entity work.FullAdder port map
+			(Y(k), '0', iCarry(k - 1)	, iCarry(k), Y(k));
+		end generate Remaining;
+	end generate IterateX;
 
-	if (Y > 7):
-		Div7(Y, IsDivisible);
-	else if (Y = '0' || Y = '7'):
+	IsDivisible <= '0';
+	IsDivTrue: if (to_integer(unsigned(Y)) = 7 or to_integer(unsigned(Y)) = 0) generate
 		IsDivisible <= '1';
-	else:
-		IsDivisible <= '0';
-	end if;	
+	End generate IsDivTrue;
+
+	RecursiveCall: if (to_integer(unsigned(Y)) > 7) generate
+		RecursiveDiv7: entity work.Div7 port map (Y, IsDivisible);
+	end generate RecursiveCall;
 End Architecture structural;
