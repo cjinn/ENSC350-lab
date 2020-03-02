@@ -25,7 +25,21 @@ DUT:	Entity work.Div7 generic map( N => N )
 -- Enter your code for generating stimuli.
 Stimulus:
 	Process
+		variable counter : integer := 0;
 	Begin
+		x (N-1 downto 0) <= "X";
+		start <= '0';
+		for i in 0 to 6 loop
+			wait until clock'event and clock = '1';
+			x <= std_logic_vector(to_unsigned(TestValue(counter) + i, x'length));
+			start <= '1';
+			assert start = '1' report "start not equal to 1" severity error;
+			wait until Done = '1';
+		end loop;
+		counter := counter + 1;
+		if counter = 10 then
+			counter := 0;
+		end if;
 	End Process Stimulus;
 
 TBDiv7:
@@ -54,6 +68,12 @@ TBDiv7:
 Detector:
 	Process
 	Begin
+		wait until Start = '1';
+		wait until clock'event and clock = '1';
+		wait until IsDivisible'STABLE(StableTime);
+		assert TBIsDivisible1 = IsDivisible report "TBIsDivisible1 != IsDivisible, x is " 
+			& integer'image(to_integer(unsigned(x))) severity error;
+		Done <= '1';
 	End Process Detector;
 End Architecture behavioural;
 
